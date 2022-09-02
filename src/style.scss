@@ -1,5 +1,5 @@
 //Import general styling
-@import "./style/general/typography.scss";
+@import "./style/typography.scss";
 
 //Import file styling
 
@@ -10,15 +10,15 @@ $secondary-color: #ffff00;
 *,
 *::before,
 *::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .webgl {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 0;
-  outline: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    outline: none;
 }

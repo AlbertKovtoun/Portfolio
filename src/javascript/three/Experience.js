@@ -6,6 +6,9 @@ import { Renderer } from "./Renderer"
 import { Sizes } from "./Sizes"
 import { Loaders } from "./Loaders"
 
+import defaultVertexShader from "../../shaders/default/vertex.glsl?raw"
+import defaultFragmentShader from "../../shaders/default/fragment.glsl?raw"
+
 const stats = new Stats()
 stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom)
@@ -16,11 +19,21 @@ export const scene = new THREE.Scene()
 
 export const loaders = new Loaders()
 
-const cube = new THREE.Mesh(
-  new THREE.TorusGeometry(1, 0.3, 20, 40),
-  new THREE.MeshBasicMaterial({ color: "blue", wireframe: true })
+const plane = new THREE.Mesh(
+  new THREE.PlaneGeometry(2, 2),
+  new THREE.ShaderMaterial({
+    vertexShader: defaultVertexShader,
+    fragmentShader: defaultFragmentShader,
+    side: THREE.DoubleSide,
+    transparent: true,
+
+    uniforms: {
+      uTexture: { value: loaders.textureLoader.load("/images/Duck.jpg") }
+    }
+  })
+
 )
-scene.add(cube)
+scene.add(plane)
 
 export const sizes = new Sizes()
 
