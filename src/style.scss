@@ -6,19 +6,138 @@
 //Colors
 $primary-color: #ff0000;
 $secondary-color: #ffff00;
+$black: #383838;
+$green: #c8ffd4;
+$red: #f7a4a4;
 
 *,
 *::before,
 *::after {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: $red;
+  background: white;
+}
+
+::selection {
+  color: $red;
+  background: white;
+}
+
+.loading-screen {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+
+  position: relative;
+  z-index: 999;
+
+  display: grid;
+  place-items: center;
+}
+
+.loading-screen-container {
+  width: 90%;
+  height: 90%;
+
+  background-image: url("/images/loading-screen-background.jpg");
+  background-size: cover;
+
+  border: $black 5px solid;
+
+  color: white;
+  -webkit-text-stroke: 2px $black;
+  letter-spacing: -4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20%;
+
+  // border: red solid 2px;
+}
+
+.loading-screen-icon-container {
+  position: relative;
+}
+
+.loading-screen-icon-0,
+.loading-screen-icon-1 {
+  width: 50px;
+  height: 50px;
+
+  border: $black 2px solid;
+
+  position: absolute;
+  left: 45%;
+  top: 45%;
+}
+
+@keyframes configure-clockwise {
+  0% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes configure-xclockwise {
+  0% {
+    transform: rotate(45deg);
+  }
+  25% {
+    transform: rotate(-45deg);
+  }
+  50% {
+    transform: rotate(-135deg);
+  }
+  75% {
+    transform: rotate(-225deg);
+  }
+  100% {
+    transform: rotate(-315deg);
+  }
+}
+
+.loading-screen-icon-0 {
+  background-color: $red;
+  animation: configure-clockwise 5s ease-in-out 0s infinite alternate;
+}
+
+.loading-screen-icon-1 {
+  background-color: $green;
+  animation: configure-xclockwise 5s ease-in-out 0s infinite alternate;
+}
+
+.loading-screen-bottom-text {
+  position: absolute;
+
+  color: $black;
+  letter-spacing: 0;
+
+  top: 75%;
+  -webkit-text-stroke: 0px $black;
 }
 
 .webgl {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 0;
-    outline: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  outline: none;
 }

@@ -1,19 +1,39 @@
+// @import url("https://fonts.googleapis.com/css?family=Chakra+Petch");
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("/fonts/ChakraPetch-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Chakra Petch";
+  src: url("/fonts/ChakraPetch-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
+  font-family: "Chakra Petch", sans-serif;
 }
 
 h1 {
-    font-size: 7.2rem;
+  font-size: 9.2rem;
 }
 
 h2 {
-    font-size: 5.4rem;
+  font-size: 5.4rem;
 }
 
 h3 {
-    font-size: 3.8rem;
+  font-size: 3.8rem;
+}
+
+h4 {
+  font-size: 2.8rem;
 }
 
 p {
-    font-size: 1.8rem;
+  // font-size: 1.8rem;
+  font-size: 2rem;
 }
