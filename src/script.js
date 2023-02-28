@@ -1,2 +1,2 @@
-import "./style.scss"
-import "./javascript/three/Experience"
+import "./style.scss";
+import "./javascript/three/Experience";

@@ -8,6 +8,8 @@ import { Loaders } from "./Loaders"
 
 import defaultVertexShader from "../../shaders/default/vertex.glsl?raw"
 import defaultFragmentShader from "../../shaders/default/fragment.glsl?raw"
+import { TextureLoaderManager } from "./TextureLoaderManager"
+import { World } from "./World"
 
 const stats = new Stats()
 stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -16,30 +18,26 @@ document.body.appendChild(stats.dom)
 export const canvas = document.querySelector("canvas.webgl")
 
 export const scene = new THREE.Scene()
+// scene.background = new THREE.Color("white")
 
 export const loaders = new Loaders()
-
-const plane = new THREE.Mesh(
-  new THREE.PlaneGeometry(2, 2),
-  new THREE.ShaderMaterial({
-    vertexShader: defaultVertexShader,
-    fragmentShader: defaultFragmentShader,
-    side: THREE.DoubleSide,
-    transparent: true,
-
-    uniforms: {
-      uTexture: { value: loaders.textureLoader.load("/images/Duck.jpg") }
-    }
-  })
-
-)
-scene.add(plane)
 
 export const sizes = new Sizes()
 
 export const camera = new Camera()
 
 export const renderer = new Renderer()
+
+export const textureLoaderManager = new TextureLoaderManager()
+
+const al = new THREE.AmbientLight(0xffffff, 0.2)
+scene.add(al)
+
+const pl = new THREE.PointLight(0xffffff, 0.6)
+pl.position.set(0, 10, 0)
+scene.add(pl)
+
+export const world = new World()
 
 //Animate
 const clock = new THREE.Clock()

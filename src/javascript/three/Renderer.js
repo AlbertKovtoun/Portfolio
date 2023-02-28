@@ -15,5 +15,7 @@ export class Renderer {
     })
     this.renderer.setSize(sizes.width, sizes.height)
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+    this.renderer.outputEncoding = THREE.sRGBEncoding
+    // this.renderer.toneMapping = THREE.ACESFilmicToneMapping
   }
 }
