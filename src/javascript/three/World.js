@@ -45,7 +45,15 @@ export class World {
       this.roadFar.material.map.anisotropy =
         renderer.renderer.capabilities.getMaxAnisotropy()
 
-      worldGroup.traverse((child) => {})
+      worldGroup.traverse((child) => {
+        if (child.isMesh && child.name === "Car") {
+          console.log(child)
+          child.material.envMap = textureLoaderManager.envMap
+          child.material.envMapIntensity = 2
+        }
+      })
+
+      // console.log(textureLoaderManager.envMap)
 
       scene.add(worldGroup)
     })

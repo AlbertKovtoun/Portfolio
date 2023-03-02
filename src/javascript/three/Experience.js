@@ -33,11 +33,24 @@ export const textureLoaderManager = new TextureLoaderManager()
 const al = new THREE.AmbientLight(0xffffff, 0.2)
 scene.add(al)
 
-const pl = new THREE.PointLight(0xffffff, 0.6)
-pl.position.set(0, 10, 0)
-scene.add(pl)
+// const pl = new THREE.PointLight("#fff", 0.6)
+// pl.position.set(10, 10, 20)
+// scene.add(pl)
 
 export const world = new World()
+
+// const carTexture = loaders.textureLoader.load("/textures/carBake.png")
+// // carTexture.flipY = false
+// carTexture.encoding = THREE.sRGBEncoding
+// carTexture.anisotropy = renderer.renderer.capabilities.getMaxAnisotropy()
+
+// const car = new THREE.Mesh(
+//   new THREE.PlaneGeometry(304, 187),
+//   new THREE.MeshBasicMaterial({ map: carTexture, transparent: true })
+// )
+// car.position.set(0, 2, 0)
+// car.scale.set(0.01, 0.01, 0.01)
+// scene.add(car)
 
 //Animate
 const clock = new THREE.Clock()

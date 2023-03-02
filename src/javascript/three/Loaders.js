@@ -9,5 +9,7 @@ export class Loaders {
     this.textureLoader = new THREE.TextureLoader(this.loadingManager)
 
     this.gltfLoader = new GLTFLoader(this.loadingManager)
+
+    this.cubeTextureLoader = new THREE.CubeTextureLoader(this.loadingManager)
   }
 }
