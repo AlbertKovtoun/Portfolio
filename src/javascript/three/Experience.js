@@ -33,9 +33,9 @@ export const textureLoaderManager = new TextureLoaderManager()
 const al = new THREE.AmbientLight(0xffffff, 0.2)
 scene.add(al)
 
-// const pl = new THREE.PointLight("#fff", 0.6)
-// pl.position.set(10, 10, 20)
-// scene.add(pl)
+const pl = new THREE.PointLight("#fff", 0.6)
+pl.position.set(10, 10, 20)
+scene.add(pl)
 
 export const world = new World()
 
