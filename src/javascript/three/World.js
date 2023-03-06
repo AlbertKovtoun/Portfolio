@@ -1,6 +1,9 @@
 import * as THREE from "three"
 import { loaders, renderer, scene, textureLoaderManager } from "./Experience"
 
+import whitePolesVertexShader from "../../shaders/WhitePoles/vertex.glsl?raw"
+import whitePolesFragmentShader from "../../shaders/WhitePoles/fragment.glsl?raw"
+
 export class World {
   constructor() {
     this.setMaterials()
@@ -12,7 +15,10 @@ export class World {
       map: textureLoaderManager.hl0Texture,
     })
 
-    this.whitePolesMaterial = new THREE.MeshBasicMaterial({ color: "white" })
+    this.whitePolesMaterial = new THREE.ShaderMaterial({
+      vertexShader: whitePolesVertexShader,
+      fragmentShader: whitePolesFragmentShader,
+    })
   }
 
   setMaxAnisotropy(worldGroup) {
