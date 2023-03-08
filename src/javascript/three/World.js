@@ -4,6 +4,9 @@ import { loaders, renderer, scene, textureLoaderManager } from "./Experience"
 import whitePolesVertexShader from "../../shaders/WhitePoles/vertex.glsl?raw"
 import whitePolesFragmentShader from "../../shaders/WhitePoles/fragment.glsl?raw"
 
+import car0VertexShader from "../../shaders/Car0/vertex.glsl?raw"
+import car0FragmentShader from "../../shaders/Car0/fragment.glsl?raw"
+
 export class World {
   constructor() {
     this.setMaterials()
@@ -18,6 +21,11 @@ export class World {
     this.whitePolesMaterial = new THREE.ShaderMaterial({
       vertexShader: whitePolesVertexShader,
       fragmentShader: whitePolesFragmentShader,
+    })
+
+    this.car0Material = new THREE.ShaderMaterial({
+      vertexShader: car0VertexShader,
+      fragmentShader: car0FragmentShader,
     })
   }
 
@@ -59,6 +67,9 @@ export class World {
 
       this.whitePoles = worldGroup.getObjectByName("WhitePoles")
       this.whitePoles.material = this.whitePolesMaterial
+
+      this.car0 = worldGroup.getObjectByName("Car")
+      this.car0.material = this.car0Material
 
       // worldGroup.traverse((child) => {
       //   if (child.isMesh && child.name === "Car") {
