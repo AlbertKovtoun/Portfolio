@@ -59,16 +59,58 @@ export class World {
       renderer.renderer.capabilities.getMaxAnisotropy()
   }
 
+  setTrainLightSequence(worldGroup) {
+    let lightSwitch = true
+    let onMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    let offMaterial = new THREE.MeshBasicMaterial({ color: 0x1f0000 })
+
+    this.trainLight0 = worldGroup.getObjectByName("TrainLight0")
+    this.trainLight0.material = offMaterial
+
+    this.trainLight1 = worldGroup.getObjectByName("TrainLight1")
+    this.trainLight1.material = offMaterial
+
+    this.trainLight2 = worldGroup.getObjectByName("TrainLight2")
+    this.trainLight2.material = offMaterial
+
+    this.trainLight3 = worldGroup.getObjectByName("TrainLight3")
+    this.trainLight3.material = offMaterial
+
+    this.trainLightArrow = worldGroup.getObjectByName("TrainLightArrow")
+    this.trainLightArrow.material = offMaterial
+
+    setInterval(() => {
+      lightSwitch = !lightSwitch
+
+      if (lightSwitch) {
+        this.trainLight0.material = onMaterial
+        this.trainLight1.material = offMaterial
+        this.trainLight2.material = offMaterial
+        this.trainLight3.material = onMaterial
+
+        this.trainLightArrow.material = onMaterial
+      } else {
+        this.trainLight0.material = offMaterial
+        this.trainLight1.material = onMaterial
+        this.trainLight2.material = onMaterial
+        this.trainLight3.material = offMaterial
+
+        this.trainLightArrow.material = offMaterial
+      }
+    }, 500)
+  }
+
   setWorld() {
     loaders.gltfLoader.load("/models/Scene.glb", (gltf) => {
-      let worldGroup = gltf.scene
+      this.worldGroup = gltf.scene
 
-      this.setMaxAnisotropy(worldGroup)
+      this.setMaxAnisotropy(this.worldGroup)
+      this.setTrainLightSequence(this.worldGroup)
 
-      this.whitePoles = worldGroup.getObjectByName("WhitePoles")
+      this.whitePoles = this.worldGroup.getObjectByName("WhitePoles")
       this.whitePoles.material = this.whitePolesMaterial
 
-      this.car0 = worldGroup.getObjectByName("Car")
+      this.car0 = this.worldGroup.getObjectByName("Car")
       this.car0.material = this.car0Material
 
       // worldGroup.traverse((child) => {
@@ -81,7 +123,7 @@ export class World {
 
       // console.log(textureLoaderManager.envMap)
 
-      scene.add(worldGroup)
+      scene.add(this.worldGroup)
     })
   }
 }
