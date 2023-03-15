@@ -1,4 +1,5 @@
 import * as THREE from "three"
+import { gsap } from "gsap"
 import { loaders, renderer, scene, textureLoaderManager } from "./Experience"
 
 import whitePolesVertexShader from "../../shaders/WhitePoles/vertex.glsl?raw"
@@ -79,6 +80,8 @@ export class World {
     this.trainLightArrow = worldGroup.getObjectByName("TrainLightArrow")
     this.trainLightArrow.material = offMaterial
 
+    this.crossingBarArm0 = worldGroup.getObjectByName("CrossingBarArm0")
+
     setInterval(() => {
       lightSwitch = !lightSwitch
 
@@ -100,12 +103,33 @@ export class World {
     }, 500)
   }
 
+  flyPlanes() {
+    this.plane0 = this.worldGroup.getObjectByName("Plane0")
+    this.plane1 = this.worldGroup.getObjectByName("Plane1")
+
+    gsap.to(this.plane0.position, {
+      x: -40,
+      duration: 40,
+      ease: "none",
+      repeat: -1,
+    })
+
+    gsap.to(this.plane1.position, {
+      x: 40,
+      duration: 40,
+      ease: "none",
+      repeat: -1,
+      delay: 10,
+    })
+  }
+
   setWorld() {
     loaders.gltfLoader.load("/models/Scene.glb", (gltf) => {
       this.worldGroup = gltf.scene
 
       this.setMaxAnisotropy(this.worldGroup)
       this.setTrainLightSequence(this.worldGroup)
+      this.flyPlanes(this.worldGroup)
 
       this.whitePoles = this.worldGroup.getObjectByName("WhitePoles")
       this.whitePoles.material = this.whitePolesMaterial
