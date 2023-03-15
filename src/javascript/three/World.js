@@ -82,6 +82,21 @@ export class World {
 
     this.crossingBarArm0 = worldGroup.getObjectByName("CrossingBarArm0")
 
+    //Arm down
+    gsap.to(this.crossingBarArm0.rotation, {
+      z: -Math.PI / 2,
+      duration: 5,
+      ease: "power2.inOut",
+    })
+
+    //Arm up
+    gsap.to(this.crossingBarArm0.rotation, {
+      z: 0,
+      duration: 5,
+      ease: "power2.inOut",
+      delay: 10,
+    })
+
     setInterval(() => {
       lightSwitch = !lightSwitch
 
