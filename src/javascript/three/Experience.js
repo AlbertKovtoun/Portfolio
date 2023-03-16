@@ -68,6 +68,9 @@ const tick = () => {
   // Update controls
   camera.controls.update()
 
+  // Update world
+  world.update(elapsedTime)
+
   // Render
   renderer.renderer.render(scene, camera.camera)
 

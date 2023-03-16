@@ -11,6 +11,7 @@ import car0FragmentShader from "../../shaders/Car0/fragment.glsl?raw"
 export class World {
   constructor() {
     this.setMaterials()
+    this.setTrainAnimationTimer()
     this.setWorld()
   }
 
@@ -60,8 +61,7 @@ export class World {
       renderer.renderer.capabilities.getMaxAnisotropy()
   }
 
-  setTrainLightSequence(worldGroup) {
-    let lightSwitch = true
+  setTrainSequence(worldGroup) {
     let onMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 })
     let offMaterial = new THREE.MeshBasicMaterial({ color: 0x1f0000 })
 
@@ -82,21 +82,9 @@ export class World {
 
     this.crossingBarArm0 = worldGroup.getObjectByName("CrossingBarArm0")
 
-    //Arm down
-    gsap.to(this.crossingBarArm0.rotation, {
-      z: -Math.PI / 2,
-      duration: 5,
-      ease: "power2.inOut",
-    })
+    this.train = worldGroup.getObjectByName("Train")
 
-    //Arm up
-    gsap.to(this.crossingBarArm0.rotation, {
-      z: 0,
-      duration: 5,
-      ease: "power2.inOut",
-      delay: 10,
-    })
-
+    let lightSwitch = true
     setInterval(() => {
       lightSwitch = !lightSwitch
 
@@ -118,6 +106,47 @@ export class World {
     }, 500)
   }
 
+  playTrainAnimation() {
+    //Arm down
+    gsap.to(this.crossingBarArm0.rotation, {
+      z: -Math.PI / 2,
+      duration: 5,
+      ease: "power2.inOut",
+      onStart: () => {
+        console.log("Train animation started")
+      },
+    })
+
+    //Arm up
+    gsap.to(this.crossingBarArm0.rotation, {
+      z: 0,
+      duration: 5,
+      ease: "power2.inOut",
+      delay: 28,
+    })
+
+    //Train
+    gsap.to(this.train.position, {
+      x: -20,
+      duration: 20,
+      ease: "none",
+      delay: 5,
+
+      onComplete: () => {
+        this.train.position.x = 20
+      },
+    })
+  }
+
+  setTrainAnimationTimer() {
+    // setInterval(() => {
+    //   this.playTrainAnimation = !this.playTrainAnimation
+    //   setTimeout(() => {
+    //     this.playTrainAnimation = !this.playTrainAnimation
+    //   }, 10)
+    // }, 2000)
+  }
+
   flyPlanes() {
     this.plane0 = this.worldGroup.getObjectByName("Plane0")
     this.plane1 = this.worldGroup.getObjectByName("Plane1")
@@ -135,6 +164,10 @@ export class World {
       ease: "none",
       repeat: -1,
       delay: 10,
+
+      onRepeat: () => {
+        this.playTrainAnimation()
+      },
     })
   }
 
@@ -143,7 +176,8 @@ export class World {
       this.worldGroup = gltf.scene
 
       this.setMaxAnisotropy(this.worldGroup)
-      this.setTrainLightSequence(this.worldGroup)
+      this.setTrainSequence(this.worldGroup)
+      this.playTrainAnimation()
       this.flyPlanes(this.worldGroup)
 
       this.whitePoles = this.worldGroup.getObjectByName("WhitePoles")
@@ -165,4 +199,6 @@ export class World {
       scene.add(this.worldGroup)
     })
   }
+
+  update(elapsedTime) {}
 }
