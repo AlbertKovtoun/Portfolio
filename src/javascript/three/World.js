@@ -10,8 +10,20 @@ import car0FragmentShader from "../../shaders/Car0/fragment.glsl?raw"
 
 export class World {
   constructor() {
+    this.trainLightsonMaterial = new THREE.MeshBasicMaterial({
+      color: 0xff0000,
+    })
+    this.trainLightsoffMaterial = new THREE.MeshBasicMaterial({
+      color: 0x1f0000,
+    })
+
+    this.trainLightsFlicker = false
+
+    setInterval(() => {
+      this.setTrainLightsFlickering(this.trainLightsFlicker)
+    }, 500)
+
     this.setMaterials()
-    this.setTrainAnimationTimer()
     this.setWorld()
   }
 
@@ -62,48 +74,58 @@ export class World {
   }
 
   setTrainSequence(worldGroup) {
-    let onMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 })
-    let offMaterial = new THREE.MeshBasicMaterial({ color: 0x1f0000 })
-
     this.trainLight0 = worldGroup.getObjectByName("TrainLight0")
-    this.trainLight0.material = offMaterial
+    this.trainLight0.material = this.trainLightsoffMaterial
 
     this.trainLight1 = worldGroup.getObjectByName("TrainLight1")
-    this.trainLight1.material = offMaterial
+    this.trainLight1.material = this.trainLightsoffMaterial
 
     this.trainLight2 = worldGroup.getObjectByName("TrainLight2")
-    this.trainLight2.material = offMaterial
+    this.trainLight2.material = this.trainLightsoffMaterial
 
     this.trainLight3 = worldGroup.getObjectByName("TrainLight3")
-    this.trainLight3.material = offMaterial
+    this.trainLight3.material = this.trainLightsoffMaterial
 
     this.trainLightArrow = worldGroup.getObjectByName("TrainLightArrow")
-    this.trainLightArrow.material = offMaterial
+    this.trainLightArrow.material = this.trainLightsoffMaterial
 
     this.crossingBarArm0 = worldGroup.getObjectByName("CrossingBarArm0")
 
     this.train = worldGroup.getObjectByName("Train")
+  }
 
-    let lightSwitch = true
-    setInterval(() => {
-      lightSwitch = !lightSwitch
-
-      if (lightSwitch) {
-        this.trainLight0.material = onMaterial
-        this.trainLight1.material = offMaterial
-        this.trainLight2.material = offMaterial
-        this.trainLight3.material = onMaterial
-
-        this.trainLightArrow.material = onMaterial
+  setTrainLightsFlickering(trainLightsFlicker) {
+    if (trainLightsFlicker) {
+      this.trainLightsSwitch = !this.trainLightsSwitch
+      if (this.trainLightsSwitch) {
+        this.trainLight0.material = this.trainLightsonMaterial
+        this.trainLight1.material = this.trainLightsoffMaterial
+        this.trainLight2.material = this.trainLightsoffMaterial
+        this.trainLight3.material = this.trainLightsonMaterial
+        this.trainLightArrow.material = this.trainLightsonMaterial
       } else {
-        this.trainLight0.material = offMaterial
-        this.trainLight1.material = onMaterial
-        this.trainLight2.material = onMaterial
-        this.trainLight3.material = offMaterial
-
-        this.trainLightArrow.material = offMaterial
+        this.trainLight0.material = this.trainLightsoffMaterial
+        this.trainLight1.material = this.trainLightsonMaterial
+        this.trainLight2.material = this.trainLightsonMaterial
+        this.trainLight3.material = this.trainLightsoffMaterial
+        this.trainLightArrow.material = this.trainLightsoffMaterial
       }
-    }, 500)
+
+      console.log("Train lights flickering")
+    }
+  }
+
+  startTrainLightsFlickering() {
+    this.trainLightsFlicker = true
+  }
+
+  stopTrainLightsFlickering() {
+    this.trainLightsFlicker = false
+    this.trainLight0.material = this.trainLightsoffMaterial
+    this.trainLight1.material = this.trainLightsoffMaterial
+    this.trainLight2.material = this.trainLightsoffMaterial
+    this.trainLight3.material = this.trainLightsoffMaterial
+    this.trainLightArrow.material = this.trainLightsoffMaterial
   }
 
   playTrainAnimation() {
@@ -115,6 +137,8 @@ export class World {
       onStart: () => {
         console.log("Train animation started")
       },
+
+      onComplete: () => {},
     })
 
     //Arm up
@@ -123,6 +147,11 @@ export class World {
       duration: 5,
       ease: "power2.inOut",
       delay: 28,
+
+      onComplete: () => {
+        console.log("Train animation ended")
+        this.stopTrainLightsFlickering()
+      },
     })
 
     //Train
@@ -136,15 +165,6 @@ export class World {
         this.train.position.x = 20
       },
     })
-  }
-
-  setTrainAnimationTimer() {
-    // setInterval(() => {
-    //   this.playTrainAnimation = !this.playTrainAnimation
-    //   setTimeout(() => {
-    //     this.playTrainAnimation = !this.playTrainAnimation
-    //   }, 10)
-    // }, 2000)
   }
 
   flyPlanes() {
