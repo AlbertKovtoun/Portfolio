@@ -90,6 +90,7 @@ export class World {
     this.trainLightArrow.material = this.trainLightsoffMaterial
 
     this.crossingBarArm0 = worldGroup.getObjectByName("CrossingBarArm0")
+    this.crossingBarArm1 = worldGroup.getObjectByName("CrossingBarArm1")
 
     this.train = worldGroup.getObjectByName("Train")
   }
@@ -110,8 +111,6 @@ export class World {
         this.trainLight3.material = this.trainLightsoffMaterial
         this.trainLightArrow.material = this.trainLightsoffMaterial
       }
-
-      console.log("Train lights flickering")
     }
   }
 
@@ -129,19 +128,30 @@ export class World {
   }
 
   playTrainAnimation() {
-    //Arm down
+    //Make lights flicker
+    this.startTrainLightsFlickering()
+
+    //Arms down
     gsap.to(this.crossingBarArm0.rotation, {
       z: -Math.PI / 2,
       duration: 5,
       ease: "power2.inOut",
+      delay: 2,
       onStart: () => {
         console.log("Train animation started")
       },
-
-      onComplete: () => {},
+    })
+    gsap.to(this.crossingBarArm1.rotation, {
+      z: Math.PI / 2,
+      duration: 5,
+      ease: "power2.inOut",
+      delay: 2.5,
+      onStart: () => {
+        console.log("Train animation started")
+      },
     })
 
-    //Arm up
+    //Arms up
     gsap.to(this.crossingBarArm0.rotation, {
       z: 0,
       duration: 5,
@@ -149,9 +159,14 @@ export class World {
       delay: 28,
 
       onComplete: () => {
-        console.log("Train animation ended")
         this.stopTrainLightsFlickering()
       },
+    })
+    gsap.to(this.crossingBarArm1.rotation, {
+      z: 0,
+      duration: 5,
+      ease: "power2.inOut",
+      delay: 28.5,
     })
 
     //Train
@@ -159,7 +174,7 @@ export class World {
       x: -20,
       duration: 20,
       ease: "none",
-      delay: 5,
+      delay: 8,
 
       onComplete: () => {
         this.train.position.x = 20
@@ -180,7 +195,7 @@ export class World {
 
     gsap.to(this.plane1.position, {
       x: 40,
-      duration: 40,
+      duration: 60,
       ease: "none",
       repeat: -1,
       delay: 10,
@@ -197,8 +212,11 @@ export class World {
 
       this.setMaxAnisotropy(this.worldGroup)
       this.setTrainSequence(this.worldGroup)
-      this.playTrainAnimation()
       this.flyPlanes(this.worldGroup)
+
+      setTimeout(() => {
+        this.playTrainAnimation()
+      }, 5000)
 
       this.whitePoles = this.worldGroup.getObjectByName("WhitePoles")
       this.whitePoles.material = this.whitePolesMaterial
