@@ -29,6 +29,12 @@ $red: #f7a4a4;
   background: white;
 }
 
+.fade-out {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
 .loading-screen {
   width: 100vw;
   height: 100vh;
