@@ -10,10 +10,13 @@ import defaultVertexShader from "../../shaders/default/vertex.glsl?raw"
 import defaultFragmentShader from "../../shaders/default/fragment.glsl?raw"
 import { TextureLoaderManager } from "./TextureLoaderManager"
 import { World } from "./World"
+import { Pane } from "tweakpane"
 
 const stats = new Stats()
 stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom)
+
+export const pane = new Pane()
 
 export const canvas = document.querySelector("canvas.webgl")
 
