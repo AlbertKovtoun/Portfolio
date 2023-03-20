@@ -4,8 +4,7 @@ import { canvas, scene, sizes } from "./Experience"
 
 export class Camera {
   constructor() {
-    this.camera
-    this.controls
+    this.cursor = { x: 0, y: 0 }
 
     this.setCamera()
     this.setCameraControls()
@@ -22,7 +21,7 @@ export class Camera {
     )
 
     //Option1
-    this.camera.position.set(-0.34, 1.5, 9.9)
+    this.camera.position.set(-0.34, 1, 9.8)
 
     //Option2
     // this.camera.position.set(0, 1.2379, 8)
@@ -31,8 +30,23 @@ export class Camera {
   }
 
   setCameraControls() {
-    this.controls = new OrbitControls(this.camera, canvas)
-    this.controls.enableDamping = true
-    this.controls.target.set(0, 1.5, 0)
+    // this.controls = new OrbitControls(this.camera, canvas)
+    // this.controls.enableDamping = true
+    // this.controls.target.set(0, 1.5, 0)
+
+    window.addEventListener("mousemove", (ev) => {
+      this.cursor.x = ev.clientX / sizes.width - 0.5
+      this.cursor.y = ev.clientY / sizes.height - 0.5
+    })
+  }
+
+  update() {
+    this.camera.lookAt(0, 1, 5)
+
+    const cameraX = this.cursor.x - 0.1
+    const cameraY = -this.cursor.y + 1
+
+    this.camera.position.x += (cameraX - this.camera.position.x) * 0.04
+    this.camera.position.y += (cameraY - this.camera.position.y) * 0.04
   }
 }

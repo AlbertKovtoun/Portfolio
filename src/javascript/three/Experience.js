@@ -69,7 +69,8 @@ const tick = () => {
   time = currentTime
 
   // Update controls
-  camera.controls.update()
+  // camera.controls.update()
+  camera.update()
 
   // Update world
   world.update(elapsedTime)
