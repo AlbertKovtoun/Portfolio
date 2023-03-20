@@ -71,6 +71,10 @@ export class World {
     this.roadFar = worldGroup.getObjectByName("RoadFar")
     this.roadFar.material.map.anisotropy =
       renderer.renderer.capabilities.getMaxAnisotropy()
+
+    this.poles = worldGroup.getObjectByName("Poles")
+    this.poles.material.map.anisotropy =
+      renderer.renderer.capabilities.getMaxAnisotropy()
   }
 
   setTrainSequence(worldGroup) {
