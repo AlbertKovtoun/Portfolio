@@ -265,7 +265,7 @@ export class World {
       ease: "power2.inOut",
       delay: 2,
       onStart: () => {
-        console.log("Train animation started")
+        // console.log("Train animation started")
       },
     })
     gsap.to(this.crossingBarArm1.rotation, {
@@ -274,7 +274,7 @@ export class World {
       ease: "power2.inOut",
       delay: 2.5,
       onStart: () => {
-        console.log("Train animation started")
+        // console.log("Train animation started")
       },
     })
 

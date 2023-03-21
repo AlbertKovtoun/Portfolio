@@ -13,6 +13,8 @@ import { World } from "./World"
 import { Pane } from "tweakpane"
 import { LoadingScreen } from "./LoadingScreen"
 
+console.log("OI WHAT ARE YOU DOING HERE")
+
 const stats = new Stats()
 stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
 document.body.appendChild(stats.dom)
