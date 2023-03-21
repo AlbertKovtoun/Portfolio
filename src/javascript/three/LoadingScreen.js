@@ -17,10 +17,6 @@ export class LoadingScreen {
     )
     this.introTextContainer0 = document.querySelector(".intro-text-container-0")
     this.introTextContainer1 = document.querySelector(".intro-text-container-1")
-
-    setTimeout(() => {
-      this.playLoadingScreenAnimations()
-    }, 2000)
   }
 
   playLoadingScreenAnimations() {

@@ -5,7 +5,7 @@ import { loadingScreen, textureLoaderManager } from "./Experience"
 export class Loaders {
   constructor() {
     this.loadingManager = new THREE.LoadingManager(() => {
-      // loadingScreen.dissapear()
+      loadingScreen.playLoadingScreenAnimations()
     })
 
     this.textureLoader = new THREE.TextureLoader(this.loadingManager)
