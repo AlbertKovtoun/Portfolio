@@ -192,6 +192,47 @@ $yellow: #ffe9d4;
   opacity: 0;
 }
 
+.our-work-container {
+  border: forestgreen solid 2px;
+  text-align: center;
+  // -webkit-text-stroke: #383838 2px;
+  color: white;
+}
+
+.our-work-cards-container {
+  border: blue solid 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 6vh;
+
+  padding-top: 2%;
+}
+
+.our-work-card-sphene,
+.our-work-card-space-camp {
+  border: $black solid 4px;
+
+  background-position: center;
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 75%;
+  height: 25vh;
+}
+
+.our-work-card-sphene {
+  background-image: url("/images/sphene.jpg");
+}
+
+.our-work-card-space-camp {
+  background-image: url("/images/space-camp.jpg");
+}
+
 .contact-us-container {
   text-align: center;
   width: 75%;
