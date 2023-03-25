@@ -19,14 +19,19 @@ html {
 
 h1 {
   font-size: 9.2rem;
+  color: white;
+  -webkit-text-stroke: #383838 3px;
+  letter-spacing: -4px;
 }
 
 h2 {
   font-size: 5.4rem;
+  color: #383838;
 }
 
 h3 {
   font-size: 3.8rem;
+  // color: #383838;
 }
 
 h4 {

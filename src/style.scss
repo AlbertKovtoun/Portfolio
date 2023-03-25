@@ -9,6 +9,8 @@ $secondary-color: #ffff00;
 $black: #383838;
 $green: #c8ffd4;
 $red: #f7a4a4;
+$blue: #ccece6;
+$yellow: #ffe9d4;
 
 *,
 *::before,
@@ -66,6 +68,7 @@ $red: #f7a4a4;
 
   position: relative;
   z-index: 999;
+  position: absolute;
 
   display: grid;
   place-items: center;
@@ -94,10 +97,6 @@ $red: #f7a4a4;
   background-size: cover;
 
   border: $black 5px solid;
-
-  color: white;
-  -webkit-text-stroke: 2px $black;
-  letter-spacing: -4px;
 
   display: flex;
   justify-content: center;
@@ -193,8 +192,88 @@ $red: #f7a4a4;
   opacity: 0;
 }
 
+.contact-us-container {
+  text-align: center;
+  width: 75%;
+  width: 100vw;
+  padding: 5% 0;
+  // height: 200vh;
+  border: red solid 2px;
+}
+
+.contact-us-cards {
+  // border: blue solid 2px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5%;
+
+  padding-top: 2%;
+}
+
+.contact-us-card-email,
+.contact-us-card-twitter,
+.contact-us-card-github,
+.contact-us-card-linkedin {
+  width: 10%;
+
+  border: $black solid 4px;
+  position: relative;
+}
+
+.contact-us-card-email {
+  background: $green;
+}
+
+.contact-us-card-twitter {
+  background: $red;
+}
+
+.contact-us-card-github {
+  background: $blue;
+}
+
+.contact-us-card-linkedin {
+  background: $yellow;
+}
+
+.contact-us-card-email::after,
+.contact-us-card-twitter::after,
+.contact-us-card-github::after,
+.contact-us-card-linkedin::after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.contact-us-card-email-svg,
+.contact-us-card-twitter-svg,
+.contact-us-card-github-svg,
+.contact-us-card-linkedin-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 50%;
+}
+
+.contact-us-email {
+  padding-top: 2%;
+  color: $black;
+}
+
+.footer {
+  width: 100vw;
+  height: 10vh;
+  background: $black;
+  color: white;
+  padding: 2%;
+}
+
 .webgl {
-  position: fixed;
+  position: relative;
   left: 0;
   top: 0;
   z-index: 0;

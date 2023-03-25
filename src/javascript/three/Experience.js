@@ -15,11 +15,12 @@ import { LoadingScreen } from "./LoadingScreen"
 
 console.log("OI WHAT ARE YOU DOING HERE")
 
-const stats = new Stats()
-stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
-document.body.appendChild(stats.dom)
+// const stats = new Stats()
+// stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
+// document.body.appendChild(stats.dom)
 
 export const pane = new Pane()
+pane.hidden = true
 
 export const loadingScreen = new LoadingScreen()
 
@@ -65,7 +66,7 @@ const clock = new THREE.Clock()
 let time = Date.now()
 
 const tick = () => {
-  stats.begin()
+  // stats.begin()
 
   const elapsedTime = clock.getElapsedTime()
 
@@ -85,7 +86,7 @@ const tick = () => {
 
   window.requestAnimationFrame(tick)
 
-  stats.end()
+  // stats.end()
 }
 
 tick()
