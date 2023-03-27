@@ -211,7 +211,14 @@ $yellow: #ffe9d4;
 }
 
 .our-work-card-sphene,
-.our-work-card-space-camp {
+.our-work-card-degen-ape,
+.our-work-card-bioarm,
+.our-work-card-sunice,
+.our-work-card-space-camp,
+.our-work-card-virtual-planet,
+.our-work-card-atomizer,
+.our-work-card-coco-islands,
+.our-work-card-self-avoiding-walk {
   border: $black solid 4px;
 
   background-position: center;
@@ -222,32 +229,75 @@ $yellow: #ffe9d4;
   align-items: center;
   justify-content: center;
 
-  width: 75%;
-  height: 25vh;
+  width: 60%;
+  height: 20vh;
 
   position: relative;
   transition: background-size 0.5s ease-in-out;
+}
+
+.our-work-cards-title {
+  position: relative;
+  z-index: 1;
 }
 
 .our-work-card-sphene {
   background-image: url("/images/sphene.jpg");
 }
 
+.our-work-card-degen-ape {
+  background-image: url("/images/degen-ape.jpg");
+}
+
 .our-work-card-space-camp {
   background-image: url("/images/space-camp.jpg");
 }
 
-.our-work-card-sphene:hover,
-.our-work-card-space-camp:hover {
-  background-size: 100%;
+.our-work-card-virtual-planet {
+  background-image: url("/images/virtual-planet.jpg");
 }
-.our-work-cards-title {
-  position: relative;
-  z-index: 1;
+
+.our-work-card-bioarm {
+  background-image: url("/images/bioarm.jpg");
+}
+
+.our-work-card-sunice {
+  background-image: url("/images/sunice.jpg");
+}
+
+.our-work-card-atomizer {
+  background-image: url("/images/atomizer.jpg");
+}
+
+.our-work-card-coco-islands {
+  background-image: url("/images/coco-islands.jpg");
+}
+
+.our-work-card-self-avoiding-walk {
+  background-image: url("/images/self-avoiding-walk.jpg");
+}
+
+.our-work-card-sphene:hover,
+.our-work-card-degen-ape:hover,
+.our-work-card-bioarm:hover,
+.our-work-card-sunice:hover,
+.our-work-card-space-camp:hover,
+.our-work-card-virtual-planet:hover,
+.our-work-card-atomizer:hover,
+.our-work-card-coco-islands:hover,
+.our-work-card-self-avoiding-walk:hover {
+  background-size: 100%;
 }
 
 .our-work-card-sphene::after,
-.our-work-card-space-camp::after {
+.our-work-card-degen-ape::after,
+.our-work-card-bioarm::after,
+.our-work-card-sunice::after,
+.our-work-card-space-camp::after,
+.our-work-card-virtual-planet::after,
+.our-work-card-atomizer::after,
+.our-work-card-coco-islands::after,
+.our-work-card-self-avoiding-walk::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -259,7 +309,14 @@ $yellow: #ffe9d4;
 }
 
 .our-work-card-sphene:hover::after,
-.our-work-card-space-camp:hover::after {
+.our-work-card-degen-ape:hover::after,
+.our-work-card-bioarm:hover::after,
+.our-work-card-sunice:hover::after,
+.our-work-card-space-camp:hover::after,
+.our-work-card-virtual-planet:hover::after,
+.our-work-card-atomizer:hover::after,
+.our-work-card-coco-islands:hover::after,
+.our-work-card-self-avoiding-walk:hover::after {
   opacity: 1;
 }
 
