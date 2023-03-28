@@ -1,3 +1,5 @@
+import { gsap } from "gsap"
+
 const contactUsEmail = document.querySelector(".contact-us-email")
 const tooltip = document.querySelector(".tooltip")
 
