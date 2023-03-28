@@ -229,6 +229,7 @@ $white: #f9f1f1;
 .our-work-card-degen-ape,
 .our-work-card-bioarm,
 .our-work-card-sunice,
+.our-work-card-floating-world,
 .our-work-card-space-camp,
 .our-work-card-virtual-planet,
 .our-work-card-atomizer,
@@ -256,6 +257,14 @@ $white: #f9f1f1;
   z-index: 1;
 }
 
+.our-work-card-floating-world-credits {
+  position: absolute;
+  z-index: 1;
+
+  bottom: 0;
+  right: 0;
+}
+
 .our-work-card-sphene {
   background-image: url("/images/sphene.jpg");
 }
@@ -280,6 +289,10 @@ $white: #f9f1f1;
   background-image: url("/images/sunice.jpg");
 }
 
+.our-work-card-floating-world {
+  background-image: url("/images/floating-world.jpg");
+}
+
 .our-work-card-atomizer {
   background-image: url("/images/atomizer.jpg");
 }
@@ -296,6 +309,7 @@ $white: #f9f1f1;
 .our-work-card-degen-ape:hover,
 .our-work-card-bioarm:hover,
 .our-work-card-sunice:hover,
+.our-work-card-floating-world:hover,
 .our-work-card-space-camp:hover,
 .our-work-card-virtual-planet:hover,
 .our-work-card-atomizer:hover,
@@ -308,6 +322,7 @@ $white: #f9f1f1;
 .our-work-card-degen-ape::after,
 .our-work-card-bioarm::after,
 .our-work-card-sunice::after,
+.our-work-card-floating-world::after,
 .our-work-card-space-camp::after,
 .our-work-card-virtual-planet::after,
 .our-work-card-atomizer::after,
@@ -317,9 +332,9 @@ $white: #f9f1f1;
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   z-index: 0;
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.5s ease-out;
 }
 
@@ -327,12 +342,13 @@ $white: #f9f1f1;
 .our-work-card-degen-ape:hover::after,
 .our-work-card-bioarm:hover::after,
 .our-work-card-sunice:hover::after,
+.our-work-card-floating-world:hover::after,
 .our-work-card-space-camp:hover::after,
 .our-work-card-virtual-planet:hover::after,
 .our-work-card-atomizer:hover::after,
 .our-work-card-coco-islands:hover::after,
 .our-work-card-self-avoiding-walk:hover::after {
-  opacity: 1;
+  opacity: 0;
 }
 
 .contact-us-container {
