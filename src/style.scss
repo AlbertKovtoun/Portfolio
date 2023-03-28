@@ -33,9 +33,18 @@ $white: #f9f1f1;
   background: rgba(255, 255, 255, 0);
 }
 
-//make images not selectable
+//make images not draggable
 img {
-  user-select: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+//make custom cursor
+html {
+  cursor: url("/images/cursor.svg"), auto;
 }
 
 //custom scrollbar styling that also works on firefox
@@ -254,7 +263,7 @@ img {
 
   padding-left: 4%;
 
-  border: red solid 2px;
+  // border: red solid 2px;
 }
 
 .landing-container-button {
@@ -282,7 +291,7 @@ img {
   justify-content: center;
   align-items: center;
 
-  border: blue solid 2px;
+  // border: blue solid 2px;
 }
 
 .landing-logo {
@@ -305,6 +314,15 @@ img {
   gap: 6vh;
 
   padding-top: 2%;
+
+  //make text not selectable
+  user-select: none;
+  //make text not draggable
+  -webkit-user-drag: none;
+  // //make text not selectable
+  // -webkit-touch-callout: none;
+  // //make text not draggable
+  // -webkit-app-region: no-drag;
 }
 
 .our-work-card-sphene,
