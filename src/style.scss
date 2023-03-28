@@ -439,6 +439,7 @@ html {
 .our-work-card-atomizer,
 .our-work-card-coco-islands,
 .our-work-card-self-avoiding-walk {
+  cursor: pointer;
   border: $black solid 4px;
 
   background-position: center;
@@ -579,6 +580,7 @@ html {
 .contact-us-card-twitter,
 .contact-us-card-github,
 .contact-us-card-linkedin {
+  cursor: pointer;
   width: 10%;
 
   border: $black solid 4px;
@@ -630,6 +632,7 @@ html {
   //make div fit text
   width: fit-content;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .tooltip {
@@ -638,12 +641,17 @@ html {
 
 .footer {
   width: 100%;
-  height: 10vh;
+  // height: 10vh;
   background: $black;
   color: white;
   padding: 2%;
 
-  border: yellow solid 2px;
+  // border: yellow solid 2px;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
 }
 
 .webgl {
