@@ -209,8 +209,8 @@ $white: #f9f1f1;
 }
 
 .landing {
-  width: 60%;
-  height: 60vh;
+  width: 100%;
+  height: 100vh;
 
   display: flex;
   align-items: center;
@@ -223,9 +223,46 @@ $white: #f9f1f1;
   width: 90%;
   height: 90%;
 
-  background: $yellow;
+  background: $white;
+  color: $black;
+
+  h2 {
+    -webkit-text-stroke: #383838 2px;
+    color: white;
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+  display: flex;
+  flex-direction: row;
 
   border: $black solid 5px;
+}
+
+.landing-container-text {
+  width: 50%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding-left: 4%;
+
+  border: red solid 2px;
+}
+
+.landing-container-button {
+  border: $black solid 4px;
+  color: $black;
+  background: $red;
+  padding: 2rem;
+}
+
+.landing-container-logo {
+  width: 50%;
+  height: 100%;
+
+  border: blue solid 2px;
 }
 
 .our-work-container {
