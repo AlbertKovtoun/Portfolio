@@ -39,11 +39,12 @@ $white: #f9f1f1;
 }
 
 ::-webkit-scrollbar-track {
-  background: $white;
+  background: $black;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $black;
+  background: $red;
+  border-radius: 1rem;
 }
 
 @keyframes fadeOutAnimation {
