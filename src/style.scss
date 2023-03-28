@@ -30,7 +30,12 @@ $white: #f9f1f1;
 
 ::selection {
   color: $red;
-  background: white;
+  background: rgba(255, 255, 255, 0);
+}
+
+//make images not selectable
+img {
+  user-select: none;
 }
 
 //custom scrollbar styling that also works on firefox
@@ -227,10 +232,11 @@ $white: #f9f1f1;
   color: $black;
 
   h2 {
-    -webkit-text-stroke: #383838 2px;
+    -webkit-text-stroke: #383838 1px;
     color: white;
     letter-spacing: -2px;
     line-height: 1;
+    font-size: 6.5rem;
   }
   display: flex;
   flex-direction: row;
@@ -255,14 +261,32 @@ $white: #f9f1f1;
   border: $black solid 4px;
   color: $black;
   background: $red;
-  padding: 2rem;
+  padding: 1rem;
+  text-decoration: none;
+
+  //make button not take up full width
+  width: fit-content;
+
+  transition: transform 0.2s ease-in-out;
+}
+
+.landing-container-button:hover {
+  transform: scale(0.95);
 }
 
 .landing-container-logo {
   width: 50%;
   height: 100%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border: blue solid 2px;
+}
+
+.landing-logo {
+  width: 75%;
 }
 
 .our-work-container {
