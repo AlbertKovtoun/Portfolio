@@ -119,6 +119,7 @@ html {
   background-color: $red;
   border-radius: 50%;
   // display: inline-block;
+  pointer-events: none;
   position: fixed;
   background: $green;
 
