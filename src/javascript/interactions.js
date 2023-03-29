@@ -29,18 +29,6 @@ window.addEventListener("mousemove", (ev) => {
   gsap.to(dot, { x: cursor.x, y: cursor.y, duration: 0.5 })
 })
 
-//Pin WebGL scene
-// gsap.to(landing, {
-//   scrollTrigger: {
-//     trigger: webgl,
-//     // start: "top bottom",
-//     // end: "top top",
-//     // scrub: true,
-//     // pin: true,
-//     markers: true,
-//   },
-// })
-
 const landing = document.querySelector(".landing")
 const landingLogo = document.querySelector(".landing-logo")
 
@@ -53,3 +41,7 @@ gsap.from(landingLogo, {
   opacity: 0,
   duration: 2,
 })
+
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0)
+}

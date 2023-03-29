@@ -24,6 +24,9 @@ $white: #f9f1f1;
 
 body {
   overflow-x: hidden;
+  background-image: url("/images/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 ::-moz-selection {
@@ -118,12 +121,12 @@ html {
   width: 2rem;
   background-color: $red;
   border-radius: 50%;
-  // display: inline-block;
   pointer-events: none;
   position: fixed;
   background: $green;
 
   z-index: 999;
+  border: $black solid 0.2rem;
 }
 
 .loading-screen {
