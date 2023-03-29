@@ -4,6 +4,7 @@ export class LoadingScreen {
   }
 
   setLoadingScreen() {
+    this.body = document.querySelector("body")
     this.loadingScreen = document.querySelector(".loading-screen")
     this.loadingScreenContainer = document.querySelector(
       ".loading-screen-container"
@@ -17,6 +18,10 @@ export class LoadingScreen {
     )
     this.introTextContainer0 = document.querySelector(".intro-text-container-0")
     this.introTextContainer1 = document.querySelector(".intro-text-container-1")
+
+    //Prevent user from scrolling
+    this.body.style.position = "fixed"
+    this.body.style.top = `-${window.scrollY}px`
   }
 
   playLoadingScreenAnimations() {
@@ -49,6 +54,9 @@ export class LoadingScreen {
 
     setTimeout(() => {
       this.loadingScreen.classList.add("fade-out")
+
+      //Let user scroll again
+      this.body.style.position = "relative"
     }, 9000)
   }
 }
