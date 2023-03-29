@@ -14,3 +14,14 @@ contactUsEmail.addEventListener("click", function () {
 
   navigator.clipboard.writeText(copyText.innerHTML)
 })
+
+//Make cursor follow mouse
+const dot = document.querySelector(".dot")
+let cursor = { x: 0, y: 0 }
+
+window.addEventListener("mousemove", (ev) => {
+  cursor.x = ev.clientX
+  cursor.y = ev.clientY
+
+  gsap.to(dot, { x: cursor.x, y: cursor.y, duration: 0.5 })
+})
