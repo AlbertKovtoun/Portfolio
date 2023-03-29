@@ -1,4 +1,7 @@
 import { gsap } from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const contactUsEmail = document.querySelector(".contact-us-email")
 const tooltip = document.querySelector(".tooltip")
@@ -24,4 +27,29 @@ window.addEventListener("mousemove", (ev) => {
   cursor.y = ev.clientY
 
   gsap.to(dot, { x: cursor.x, y: cursor.y, duration: 0.5 })
+})
+
+//Pin WebGL scene
+// gsap.to(landing, {
+//   scrollTrigger: {
+//     trigger: webgl,
+//     // start: "top bottom",
+//     // end: "top top",
+//     // scrub: true,
+//     // pin: true,
+//     markers: true,
+//   },
+// })
+
+const landing = document.querySelector(".landing")
+const landingLogo = document.querySelector(".landing-logo")
+
+gsap.from(landingLogo, {
+  scrollTrigger: {
+    trigger: landing,
+    // scrub: true,
+  },
+
+  opacity: 0,
+  duration: 2,
 })
