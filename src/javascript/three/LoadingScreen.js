@@ -21,7 +21,7 @@ export class LoadingScreen {
 
     //Prevent user from scrolling
     this.body.style.position = "fixed"
-    this.body.style.top = `-${window.scrollY}px`
+    // this.body.style.top = `-${window.scrollY}px`
   }
 
   playLoadingScreenAnimations() {
@@ -58,5 +58,9 @@ export class LoadingScreen {
       //Let user scroll again
       this.body.style.position = "relative"
     }, 9000)
+
+    setTimeout(() => {
+      this.loadingScreen.style.display = "none"
+    }, 10000)
   }
 }

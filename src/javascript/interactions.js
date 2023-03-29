@@ -1,5 +1,6 @@
 import { gsap } from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
+import SmoothScroll from "smooth-scroll"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -45,3 +46,13 @@ gsap.from(landingLogo, {
 window.onbeforeunload = function () {
   window.scrollTo(0, 0)
 }
+
+setTimeout(() => {
+  contactUsEmail.scrollIntoView({ behavior: "smooth" })
+}, 15000)
+
+//Smooth scroll to anchor
+const scroll = new SmoothScroll('a[href*="#"]', {
+  speed: 500,
+  easing: "easeInOutQuart",
+})
