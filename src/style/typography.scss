@@ -4,12 +4,16 @@
   font-family: "Chakra Petch";
   src: url("/fonts/ChakraPetch-Regular.ttf") format("truetype");
   font-weight: normal;
+
+  font-display: swap;
 }
 
 @font-face {
   font-family: "Chakra Petch";
   src: url("/fonts/ChakraPetch-Bold.ttf") format("truetype");
   font-weight: bold;
+
+  font-display: swap;
 }
 
 html {
