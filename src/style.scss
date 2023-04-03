@@ -325,13 +325,15 @@ html {
 
 .landing {
   width: 100%;
-  height: 100vh;
+  // height: 100vh;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
   // border: pink solid 2px;
+
+  padding: 5% 0;
 }
 
 .landing-container {
@@ -340,6 +342,8 @@ html {
 
   background: $white;
   color: $black;
+
+  padding: 5% 0;
 
   h2 {
     -webkit-text-stroke: #383838 1px;
@@ -350,6 +354,7 @@ html {
   }
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   border: $black solid 5px;
 }
@@ -363,8 +368,6 @@ html {
   justify-content: center;
 
   padding-left: 4%;
-
-  // border: red solid 2px;
 }
 
 .landing-container-button {
@@ -581,7 +584,6 @@ html {
 
 .contact-us-container {
   text-align: center;
-  width: 75%;
   width: 100%;
   padding: 10% 0;
   // height: 200vh;
@@ -683,4 +685,106 @@ html {
   top: 0;
   z-index: 0;
   outline: none;
+}
+
+@media (max-width: 1200px) {
+  .dot {
+    opacity: 0;
+  }
+
+  h1 {
+    font-size: 8rem;
+    -webkit-text-stroke: #383838 1px;
+  }
+
+  h2 {
+    font-size: 6rem;
+  }
+
+  .landing-container {
+    flex-direction: column;
+    padding: 15% 0;
+  }
+
+  .landing-container-text {
+    text-align: center;
+    align-items: center;
+
+    padding-bottom: 10%;
+
+    width: 90%;
+
+    h2 {
+      font-size: 6rem;
+    }
+  }
+
+  .landing-container-logo {
+    width: 50%;
+  }
+
+  .our-work-card-sphene,
+  .our-work-card-degen-ape,
+  .our-work-card-bioarm,
+  .our-work-card-sunice,
+  .our-work-card-floating-world,
+  .our-work-card-space-camp,
+  .our-work-card-virtual-planet,
+  .our-work-card-atomizer,
+  .our-work-card-coco-islands,
+  .our-work-card-self-avoiding-walk {
+    width: 90%;
+  }
+
+  .contact-us-card-email,
+  .contact-us-card-twitter,
+  .contact-us-card-github,
+  .contact-us-card-linkedin {
+    width: 15%;
+  }
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 7rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  .landing-container-text {
+    h2 {
+      font-size: 5rem;
+    }
+  }
+
+  .loading-screen {
+    h1 {
+      font-size: 5rem;
+      letter-spacing: -2px;
+    }
+  }
+
+  .loading-screen-bottom-text {
+    text-align: center;
+    h4 {
+      font-size: 1.8rem;
+    }
+  }
+
+  .contact-us-cards {
+    flex-direction: column;
+
+    gap: 4vh;
+
+    padding-top: 5%;
+  }
+
+  .contact-us-card-email,
+  .contact-us-card-twitter,
+  .contact-us-card-github,
+  .contact-us-card-linkedin {
+    width: 40%;
+  }
 }
