@@ -368,6 +368,10 @@ html {
   justify-content: center;
 
   padding-left: 4%;
+
+  h2 {
+    margin-bottom: 30px;
+  }
 }
 
 .landing-container-button {
@@ -376,6 +380,7 @@ html {
   background: $red;
   padding: 1rem;
   text-decoration: none;
+  margin-top: 20px;
 
   //make button not take up full width
   width: fit-content;
