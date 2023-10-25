@@ -745,6 +745,8 @@ html {
 
     width: 90%;
 
+    padding-left: 0;
+
     h2 {
       font-size: 6rem;
     }
@@ -821,6 +823,10 @@ html {
 
   .contact-us-email {
     font-size: 2.8rem;
+  }
+
+  .arrow-down-icon-container {
+    opacity: 0;
   }
 }
 
