@@ -323,6 +323,27 @@ html {
   opacity: 0;
 }
 
+.arrow-down-icon-container {
+  position: absolute;
+  top: 90vh;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 1;
+
+  animation: arrow-animation 2s ease-in-out infinite alternate;
+}
+
+@keyframes arrow-animation {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
 .landing {
   width: 100%;
   // height: 100vh;
