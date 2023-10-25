@@ -369,9 +369,14 @@ html {
 
   padding-left: 4%;
 
-  h2 {
-    margin-bottom: 30px;
-  }
+  // h2 {
+  //   margin-bottom: 30px;
+  // }
+}
+
+.landing-container-text p {
+  padding-top: 4%;
+  padding-bottom: 4%;
 }
 
 .landing-container-button {
@@ -791,5 +796,9 @@ html {
   .contact-us-card-github,
   .contact-us-card-linkedin {
     width: 40%;
+  }
+
+  .contact-us-email {
+    font-size: 2.8rem;
   }
 }
